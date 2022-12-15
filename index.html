@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="flappy.css">
+</head>
+<body class="conteudo">
+    <h1>Flappy Bird</h1>
+    <div class="jogo">
+        <div class="container">
+            <h4>Configurações do Jogo</h4>
+            <form action="" method="get">
+                <div class="mini-container" id="container-nome">
+                    <label for="cNome">Nome do jogador: </label>
+                    <input type="text" id="cNome">
+                </div>
+                <div class="mini-container">
+                  <p>Cenário do jogo: </p>
+                   <input type="radio" id="cNoturno" name="Cenario"><label for="cNoturno">Noturno</label>
+                    <input type="radio" id="cDiurno" name="Cenario"><label for="cDiurno">Diurno</label>
+                </div>
+                <div class="mini-container">
+                    <p>Intervalo entre abertura dos canos: </p>
+                    <input type="radio" id="iFacil" name="Intervalo"> <label for="iFacil">Fácil</label>
+                    <input type="radio" id="iMedio" name="Intervalo"> <label for="iMedio">Médio</label>
+                    <input type="radio" id="iDificil" name="Intervalo"> <label for="iDificil">Difícil</label>
+                </div>
+                <div class="mini-container">
+                    <p>Distância entre os canos: </p>
+                    <input type="radio" id="dFacil" name="Distancia"> <label for="dFacil">Fácil</label>
+                    <input type="radio" id="dMedio" name="Distancia"> <label for="dMedio">Médio</label>
+                    <input type="radio" id="dDificil" name="Distancia"> <label for="dDificil">Difícil</label>
+                </div>
+                <div class="mini-container">
+                    <label for="cVelocidade">Velocidade do jogo: </label>
+                    <input type="text" id="cVelocidade">
+                </div>
+                <div class="mini-container">
+                    <label for="cPersonangens">Personagens: </label>
+                    <select name="" id="cPersonagens">
+                        <option value="">Personagem 1</option>
+                        <option value="">Personagem 2</option>
+                        <option value="">Personagem 3</option>
+                    </select>
+                </div>
+                <div class="mini-container">
+                    <p>Tipo de Jogo: </p>
+                    <input type="radio" id="tTreino" name="Tipo"> <label for="tTreino">Treino</label>
+                    <input type="radio" id="tReal" name="Tipo"> <label for="tReal">Real</label>
+                </div>
+                <div class="mini-container">
+                    <p>Velocidade do personagem: </p>
+                    <input type="radio" id="vBaixa" name="Velocidade"> <label for="vBaixa">Baixa</label>
+                    <input type="radio" id="vMedia" name="Velocidade"> <label for="vMedia">Média</label>
+                    <input type="radio" id="vRapida" name="Velocidade"> <label for="vRapida">Rápida</label>
+                </div>
+                <div class="mini-container">
+                    <p>Pontuação: </p>
+                    <input type="radio" id="p1" name="Pontuacao"> <label for="p1">1</label>
+                    <input type="radio" id="p10" name="Pontuacao"> <label for="p10">10</label>
+                    <input type="radio" id="p100" name="Pontuacao"> <label for="p100">100</label>
+                </div>
+            </form>
+        </div>
+        <div wm-flappy>
+        </div>
+         
+    </div>
+
+   <script src="js/flappy.js"></script>
+</body>
+</html>

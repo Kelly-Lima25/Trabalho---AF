@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('fonts/Oswald-Regular.ttf') format('truetype');
+    font-family: 'Pixel';
+    src: url("fontes/Pixel.ttf");
+}
+
+* {
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #0D262D;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jogo{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 10px 10px;
+    gap: 2.875rem;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    width: 430px;
+    height: 420px;
+    border: 2px solid black;
+}
+.mini-container{
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;         
+}
+h4{
+    text-align: center;
+    margin-top: 5px;
+}
+p{
+    margin-right: 10px;
+}
+    
+#cNome, #cVelocidade, #cPersonagens{
+    margin-left: 10px;
+}
+
+[wm-flappy] {
+    position: relative;
+    border: 5px solid dodgerblue;
+    height: 498px;
+    width: 800px;
+    
+    background-color: deepskyblue;
+    overflow: hidden;
+}
+
+.passaro {
+    position: absolute;
+    width: 60px;
+    left: calc(50% - 30px);
+}
+
+.par-de-barreiras {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.barreira {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barreira .borda {
+    height: 30px;
+    width: 130px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border: 2px solid #000;
+}
+
+.barreira .corpo {
+    height: 40px;
+    width: 110px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.progresso {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: Pixel;
+    font-size: 70px;
+    z-index: 100;
+}
+
