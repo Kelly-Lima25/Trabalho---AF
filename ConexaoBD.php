@@ -9,7 +9,7 @@ class ConexaoBD{
         $this->url = "127.0.0.1";
         $this->usuario = "root";
         $this->senha = '';
-        $this->BD = "BDJogo";
+        $this->BD = "bdJogo";
     }
     public function getConexaoBD(){
         return new mysqli(
