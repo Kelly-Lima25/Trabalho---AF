@@ -1,9 +1,19 @@
 @font-face {
     font-family: 'Oswald';
     src: url('fonts/Oswald-Regular.ttf') format('truetype');
-    font-family: 'Pixel';
-    src: url("fontes/Pixel.ttf");
+    
 }
+@font-face {
+    font-family: 'Pixel';
+    src: url("fontes/Pixel.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'SuperMario';
+    src: url("fontes/SuperMario256.ttf") format('truetype');
+}
+
+
 
 :root{
     --backgroundLight: deepskyblue;
@@ -11,7 +21,7 @@
 }
 
 * {
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif;  */
     box-sizing: border-box;
 }
 
@@ -29,6 +39,7 @@ body {
     align-items: center;
 }
 
+
 .jogo{
     display: flex;
     height: 100%;
@@ -42,9 +53,12 @@ body {
     justify-content: center;
     flex: 1;
     width: 430px;
-    height: 420px;
+    height: 450px;
     border: 2px solid black;
+    background: linear-gradient(90deg,#F3FFB6, #2C5530 );
+     
 }
+
 .mini-container{
     height: 35px;
     display: flex;
@@ -54,6 +68,7 @@ body {
 h4{
     text-align: center;
     margin-top: 5px;
+    font-family: 'SuperMario', sans-serif
 }
 p{
     margin-right: 10px;
@@ -69,7 +84,7 @@ p{
     height: 498px;
     width: 800px;
     
-    background-color: var(--backgroundLight);
+    background-color: var(--backgroundDark);
     overflow: hidden;
 }
 

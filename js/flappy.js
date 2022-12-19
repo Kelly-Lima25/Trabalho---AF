@@ -1,16 +1,13 @@
-const urlParams = new URLSearchParams(window.location.search);
-const pontuacao = urlParams.get('pontuacao');
-
 function mudarCenario(){
     const urlParams = new URLSearchParams(window.location.search);
 
     const cenario = urlParams.get('cenario');
     const Jogo = document.querySelector('[wm-flappy]')
     if(cenario == 'diurno'){
-        Jogo.style.background= 'var(--backgroundDark)';
+        Jogo.style.background= 'var(--backgroundLight)';
     }
     else{
-        Jogo.style.background= 'var(--backgroundLight)';
+        Jogo.style.background= 'var(--backgroundDark)';
     }
     
 }
@@ -51,17 +48,17 @@ function mudarAbertura(){
     const abertura = urlParams.get('distanciaCanos');
 
     switch(abertura){
-        case 'facil':
+        case 'dFacil':
             return 280
             break;
-        case 'medio':
-            return 210
+        case 'dMedio':
+            return 220
             break;
-        case 'dificil':
-            return 180
+        case 'dDificil':
+            return 160
             break;
         default:
-            return null;
+            return 220;
     }
 }
 
@@ -70,21 +67,38 @@ function mudarIntervalo(){
     const intervalo = urlParams.get('intervalo');
 
     switch(intervalo){
-        case 'facil':
-            return 480
+        case 'iFacil':
+            return 500
             break;
-        case 'medio':
-            return 390
+        case 'iMedio':
+            return 400
             break;
-        case 'dificil':
-            return 300
+        case 'iDificil':
+            return 250
+            break;
+        default:
+            return 400;
+    }
+}
+
+function mudarVelocidadePersonagem(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const velocidadePersonagem = urlParams.get('VelocidadePersonagem');
+
+    switch(velocidadePersonagem){
+        case 'vBaixa': 
+            return [3,-3]
+            break;
+        case 'vMedia':
+            return [8,-5]
+            break;
+        case 'vDificil':
+            return [10,-7]
             break;
         default:
             return null;
     }
 }
-
-
 
 function novoElemento(tagName, className) {
     const elemento = document.createElement(tagName)
@@ -167,7 +181,7 @@ function Passaro(alturaJogo) {
     window.onkeyup = e => voando = false
 
     this.animar = () => {
-        const novoY = this.getY() + (voando ? 8 : -5)
+        const novoY = this.getY() + (voando ? mudarVelocidadePersonagem()[0] : mudarVelocidadePersonagem()[1])
         const alturaMaxima = alturaJogo - this.elemento.clientWidth
 
         if (novoY <= 0) {
@@ -223,7 +237,7 @@ function colidiu(passaro, barreiras) {
 
     const progresso = new Progresso()
     const barreiras = new Barreiras(altura, largura, mudarAbertura(), mudarIntervalo(),
-        () => progresso.atualizarPontos(++pontos))
+        () => progresso.atualizarPontos(pontos += mudarPontuacao()))
 
     const passaro = new Passaro(altura)
 
@@ -231,6 +245,7 @@ function colidiu(passaro, barreiras) {
     areaDoJogo.appendChild(passaro.elemento)
     barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
     
+    mudarCenario()
 
     this.start = () => {
         const temporizador = setInterval(() => {
@@ -244,6 +259,4 @@ function colidiu(passaro, barreiras) {
     }
 }
 
-let btn = document.querySelector('#btn')
-btn.addEventListener('click', FlappyBird() )
- //new FlappyBird().start() 
+ new FlappyBird().start() 

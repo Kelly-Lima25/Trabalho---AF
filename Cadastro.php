@@ -2,14 +2,14 @@
     include("ConexaoBD.php");
 
     $jogador = $_POST['cNome'];
-    $cenario = $_POST['Cenario'];
-    $intervalo = $_POST['Intervalo'];
-    $abertura = $_POST['Distancia'];
+    $cenario = $_POST['cCenario'];
+    $intervalo = $_POST['iIntervalo'];
+    $abertura = $_POST['dDistancia'];
     $velocidade = $_POST['cVelocidade'];
     $personagem = $_POST['cPersonagem'];
-    $tipoJogo = $_POST['Tipo'];
-    $velocidadePersonagem = $_POST['Velocidade'];
-    $pontuacao = $_POST['Pontuacao'];
+    $tipoJogo = $_POST['tTipo'];
+    $velocidadePersonagem = $_POST['vVelocidade'];
+    $pontuacao = $_POST['pPontuacao'];
 
     $retornoBD;
     $conexaoBD;
@@ -17,7 +17,7 @@
     $objConexao = new ConexaoBD();
     $conexaoBD = $objConexao->getConexaoBD();
 
-    $mysqli = conexaoBD->prepare("INSERT INTO `partida`(`idpartida`,`jogador`,`cenario`,`velocidade`, `intervalo`,`distancia`,`personagem`, `tipoJogo`,`velocidadePersonagem`, `pontuacao`) VALUES(NULL,?,?,?,?,?,?,?,?,?) ")
+    $mysqli = conexaoBD->prepare("INSERT INTO `partida`(`idpartida`,`jogador`,`cenario`,`velocidade`, `intervalo`,`distancia`,`personagem`, `tipoJogo`,`velocidadePersonagem`, `pontuacao`) VALUES(NULL,?,?,?,?,?,?,?,?,?) ");
 
     $mysqli->bind_param('ssssisssi', $jogador, $cenario, $intervalo, $abertura, $velocidade, $personagem, $tipoJogo, $velocidadePersonagem, $pontuacao);
 
